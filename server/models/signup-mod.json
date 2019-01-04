@@ -1,0 +1,52 @@
+{
+  "name": "SignupMod",
+  "plural": "SignupMods",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "date": {
+      "type": "date",
+      "required": true
+    },
+    "time": {
+      "type": "number",
+      "required": false
+    },
+    "remove": {
+      "type": "boolean",
+      "required": false
+    }    
+  },
+  "validations": [],
+  "relations": {
+     "user": {
+      "type": "belongsTo",
+      "model": "User"
+    },
+     "department": {
+      "type": "belongsTo",
+      "model": "Department"
+    },
+     "shiftDay": {
+      "type": "belongsTo",
+      "model": "Shift"
+    },
+     "shiftNight": {
+      "type": "belongsTo",
+      "model": "Shift"
+    },
+     "machine": {
+      "type": "belongsTo",
+      "model": "Machine"
+    },
+    "processedBy": {
+      "type": "belongsTo",
+      "model": "User"
+    }    
+  },
+  "acls": [],
+  "methods": {}
+}

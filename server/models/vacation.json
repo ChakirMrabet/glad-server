@@ -1,0 +1,62 @@
+{
+  "name": "Vacation",
+  "plural": "vacations",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "Timestamp": true
+  },
+  "properties": {
+    "status": {
+      "type": "number",
+      "required": true
+    },
+    "type": {
+      "type": "number",
+      "required": true
+    },
+    "date": {
+      "type": "date",
+      "required": true
+    },
+    "hours": {
+      "type": "number",
+      "required": false
+    }    
+  },
+  "validations": [],
+  "relations": {  
+      "user": {
+        "type": "belongsTo",
+        "model": "User"
+      },
+      "processedBy": {
+        "type": "belongsTo",
+        "model": "User"
+      }
+  },
+  "acls": [
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    }
+  ],
+  "methods": {}
+}

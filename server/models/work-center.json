@@ -1,0 +1,60 @@
+{
+  "name": "WorkCenter",
+  "plural": "WorkCenters",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "Timestamp": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "index":{"unique":true}
+    },
+    "description": {
+      "type": "string",
+      "required": false
+    },
+    "notes": {
+      "type": "string",
+      "required": false
+    }      
+  },
+  "validations": [],
+  "relations": {
+    "machines": {
+      "type": "hasMany",
+      "model": "Machine"
+    },
+    "departments": {
+      "type": "hasMany",
+      "model": "Department",
+      "through": "DepartmentWorkcenter"
+    }    
+  },
+  "acls": [
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    }
+  ],
+  "methods": {}
+}

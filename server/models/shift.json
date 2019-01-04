@@ -1,0 +1,49 @@
+{
+  "name": "Shift",
+  "plural": "Shifts",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "index": {"unique": true} 
+    },
+    "description": {
+      "type": "string",
+      "required": false
+    },
+    "type": {
+      "type": "number",
+      "required": true
+    },    
+    "notes": {
+      "type": "string",
+      "required": false
+    },
+    "days": {
+      "type": "object",
+      "required": false
+    }       
+  },
+  "validations": [],
+  "relations": {
+    "users":{
+      "type":"hasMany",
+      "model":"User"
+    },
+    "assignments":{
+      "type":"hasMany",
+      "model":"ShiftUser"
+    },
+    "signUps":{
+      "type":"hasMany",
+      "model":"SignUps"
+    }      
+  },
+  "acls": [],
+  "methods": {}
+}

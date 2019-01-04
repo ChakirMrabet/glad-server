@@ -1,0 +1,75 @@
+{
+  "name": "ShiftAllocation",
+  "plural": "ShiftAllocations",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "Timestamp": true
+  },
+  "properties": {
+    "notes": {
+      "type": "string",
+      "required": false
+    },
+    "date": {
+      "type": "date",
+      "required": true
+    }        
+  },
+  "validations": [],
+  "relations": {
+     "dayShift": {
+      "type": "belongsTo",
+      "model": "Shift",
+      "foreignKey": "dayShiftId"
+    },
+     "nightShift": {
+      "type": "belongsTo",
+      "model": "Shift",
+      "foreignKey": "nightShiftId"
+    },
+     "off1Shift": {
+      "type": "belongsTo",
+      "model": "Shift",
+      "foreignKey": "off1ShiftId"
+    },
+     "off3Shift": {
+      "type": "belongsTo",
+      "model": "Shift",
+      "foreignKey": "off3ShiftId"
+    },
+     "off7Shift": {
+      "type": "belongsTo",
+      "model": "Shift",
+      "foreignKey": "off7ShiftId"
+    },
+     "departments": {
+      "type": "hasMany",
+      "model": "ScheduleDepartment"
+    }      
+  },
+  "acls": [
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    }
+  ],
+  "methods": {}
+}

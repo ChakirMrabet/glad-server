@@ -1,0 +1,116 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {
+    "dataSource": "mysqlDS",
+    "public": true
+  },
+  "AccessToken": {
+    "dataSource": "mysqlDS",
+    "public": true
+  },
+  "ACL": {
+    "dataSource": "mysqlDS",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "mysqlDS",
+    "public": true
+  },
+  "Role": {
+    "dataSource": "mysqlDS",
+    "public": true
+  },
+  "Profile": {
+    "dataSource": "mysqlDS",
+    "public": true
+  },
+  "Department": {
+    "dataSource": "mysqlDS",
+    "public": true
+  },
+  "Machine": {
+    "dataSource": "mysqlDS",
+    "public": true
+  },
+  "MachineUser": {
+    "dataSource": "mysqlDS",
+    "public": true
+  },
+  "DepartmentMachine": {
+    "dataSource": "mysqlDS",
+    "public": true
+  },  
+  "MachineMapping": {
+    "dataSource": "mysqlDS",
+    "public": true
+  },
+  "WorkCenter": {
+    "dataSource": "mysqlDS",
+    "public": true
+  },
+  "DepartmentWorkcenter": {
+    "dataSource": "mysqlDS",
+    "public": true
+  },    
+  "Day": {
+    "dataSource": "mysqlDS",
+    "public": true
+  },
+  "FileContainer": {
+    "dataSource": "FileStore",
+    "public": true
+  },
+  "Shift": {
+    "dataSource": "mysqlDS",
+    "public": true
+  },
+  "ShiftUser": {
+    "dataSource": "mysqlDS",
+    "public": true
+  },
+  "ShiftAllocation": {
+    "dataSource": "mysqlDS",
+    "public": true
+  },
+  "Group": {
+    "dataSource": "mysqlDS",
+    "public": true
+  },
+  "Schedule": {
+    "dataSource": "mysqlDS",
+    "public": true
+  },
+  "Signup": {
+    "dataSource": "mysqlDS",
+    "public": true
+  },
+  "SignupMod": {
+    "dataSource": "mysqlDS",
+    "public": true
+  },  
+  "Vacation": {
+    "dataSource": "mysqlDS",
+    "public": true
+  },
+  "Setting": {
+    "dataSource": "mysqlDS",
+    "public": true
+  },
+  "Log": {
+    "dataSource": "mysqlDS",
+    "public": true
+  } 
+}

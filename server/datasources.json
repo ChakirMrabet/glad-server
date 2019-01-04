@@ -1,0 +1,22 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "mysqlDS": {
+    "host": "localhost",
+    "port": 3306,
+    "url": "",
+    "database": "glad_scheduler",
+    "password": "temate",
+    "name": "mysqlDS",
+    "user": "root",
+    "connector": "mysql"
+  },
+  "FileStore": {
+    "name": "FileStore",
+    "provider": "filesystem",
+    "connector": "loopback-component-storage",
+    "root": "./uploads"
+  }
+}

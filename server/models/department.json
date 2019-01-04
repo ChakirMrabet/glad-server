@@ -1,0 +1,60 @@
+{
+  "name": "Department",
+  "plural": "Departments",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "Timestamp": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "index":{"unique":true}      
+    },
+    "description": {
+      "type": "string",
+      "required": false
+    },
+    "notes": {
+      "type": "string",
+      "required": false
+    }  
+  },
+  "validations": [],
+  "relations": {
+    "users": {
+      "type": "hasMany",
+      "model": "User"
+    },
+     "workCenters": {
+      "type": "hasMany",
+      "model": "WorkCenter",
+      "through": "DepartmentWorkcenter"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    }
+  ],
+  "methods": {}
+}

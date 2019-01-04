@@ -1,0 +1,92 @@
+{
+  "name": "Profile",
+  "plural": "Profiles",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "Timestamp": true
+  },
+  "properties": {
+    "firstname": {
+      "type": "string",
+      "required": true
+    },
+    "lastname": {
+      "type": "string",
+      "required": true
+    },
+    "hireDate": {
+      "type": "date",
+      "required": true
+    },
+    "notes": {
+      "type": "string",
+      "required": false
+    }, 
+    "last_access_on": {
+      "type": "date",
+      "required": null
+    },    
+    "last_access_ip": {
+      "type": "string",
+      "required": null
+    },    
+    "avatar": {
+      "type": "string",
+      "required": false
+    },
+    "vacation": {
+      "type": "number",
+      "required": false
+    },
+    "sick": {
+      "type": "number",
+      "required": false
+    },
+    "personal": {
+      "type": "number",
+      "required": false
+    },
+    "floating": {
+      "type": "number",
+      "required": false
+    }                    
+  },
+  "validations": [],
+  "relations": {
+    "user": {
+      "type": "hasMany",
+      "model": "User"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "Admin",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "Admin",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

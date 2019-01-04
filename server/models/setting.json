@@ -1,0 +1,67 @@
+{
+  "name": "Setting",
+  "plural": "Settings",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "Timestamp": true
+  },
+  "properties": {
+    "apiUrl": {
+      "type": "string",
+      "required": false
+    },        
+    "apiPort": {
+      "type": "string",
+      "required": false
+    },        
+    "name": {
+      "type": "string",
+      "required": false
+    },    
+    "company": {
+      "type": "string",
+      "required": false
+    },    
+    "address": {
+      "type": "string",
+      "required": false
+    },      
+    "version": {
+      "type": "object",
+      "required": false
+    },      
+    "colors": {
+      "type": "object",
+      "required": false
+    },
+    "startLockDay": {
+      "type": "number",
+      "required": false
+    },      
+    "endLockDay": {
+      "type": "number",
+      "required": false
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "accessType": "READ",
+      "principalType": "*",
+      "principalId": "*",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}
